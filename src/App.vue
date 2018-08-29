@@ -8,7 +8,8 @@
     </ul>
     <div class="imagegrid-wrapper">
       <ul class="images">
-        <img v-for="image in activePage.images" :src="image" :style="{ width:getRandomInt(20,50)+'%'}" />
+        <!--<img v-for="image in activePage.images" :src="image" :style="{ width:getRandomInt(20,50)+'%'}" />-->
+        <img v-for="image in activePage.images" :src="image"/>
       </ul>
     </div>
     <div class="video-embed">
@@ -29,6 +30,12 @@
 </template>
 
 <script>
+
+/*
+
+            IMAGE LOADING SHOULD BE AUTOMATED
+
+*/
 //BACKGROUNDS
 import zetbg from "./assets/bg/zetbg.jpg"
 import spambg from "./assets/bg/spambg.jpg"
@@ -241,14 +248,6 @@ export default {
   top: 0;
   overflow: hidden;
 }
-img{
-  -webkit-transition: width 1s; /* Safari */
-  transition: width 1s;
-}
-img:active{
-  height: 100%;
-  opacity: 0.1;
-}
 .full-window-w-bg{
   width: 100%;
   height: 100%;
@@ -320,6 +319,10 @@ img:active{
   list-style: none;
   float:left;
   display: block;
+}
+.imagegrid-wrapper .images img{
+  max-height: 10%;
+  width: 50%;
 }
 .video-embed{
   width: 40%;
